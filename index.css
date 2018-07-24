@@ -1,0 +1,91 @@
+#main {
+    margin:0 auto;
+    display: flex;
+    max-width:1200px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#main button{
+    display:block;
+    margin-bottom: .25em;
+    border: 1px solid #2399e5;
+    color: #FFFFFF;
+    background: #2399e5;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    transition: background-color .2s;
+    width: 100%;
+    cursor: pointer;
+}
+#main button:hover {
+    border: 1px solid #1f89ce;
+    background: #1f89ce;
+    outline: 0 none;
+    color: #ffffff;
+}
+#main > * {
+    box-sizing: border-box;
+}
+#main ul {
+    padding:0;
+    margin:0;
+    border: 1px solid #D5D5D5;
+    height:300px;
+    overflow-y: auto;
+}
+.left-block, .right-block {
+    width: 40%;
+}
+#main ul li {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0.325em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.block {
+    display:inline-block;
+    vertical-align:middle;
+}
+.center-block {
+    width: 132px;
+}
+#main ul li.active, #main ul li.active:hover {
+    border-color: #156090;
+    background-color: #186ba0;
+    color: #FFFFFF;
+}
+#main ul li:hover {
+    border-color: #c0c0c0;
+    background-color: #eeeeee;
+    color: #212121;
+}
+h3 {
+    margin:0;
+    text-align: center;
+    padding: .5em .75em;
+    border-bottom: 0;
+    border: 1px solid #d9d9d9;
+    color: #1b1d1f;
+    font-weight: normal;
+    background: #f6f7f9 0 0 repeat-x;
+    background: -moz-linear-gradient(top, #f6f7f9 0%, #ebedf0 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f6f7f9), color-stop(100%, #ebedf0));
+    background: -webkit-linear-gradient(top, #f6f7f9 0%, #ebedf0 100%);
+    background: -o-linear-gradient(top, #f6f7f9 0%, #ebedf0 100%);
+    background: -ms-linear-gradient(top, #f6f7f9 0%, #ebedf0 100%);
+    background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);
+}
+#main ul li img {
+    width: 48px;
+}
+@media all and (max-width: 641px) {
+    #main {
+        justify-content: center;
+    }
+    .block {
+        width: 100%;
+    }
+}
