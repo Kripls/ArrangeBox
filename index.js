@@ -1,6 +1,7 @@
 class ArrangeBox {
     constructor(selector) {
         this.selector = selector;
+        this.numButton  = [1,2,3,4];
     }
     searchElemList() {
         return document.querySelectorAll(this.selector);
@@ -66,9 +67,12 @@ class ArrangeBox {
             default:
         }
     }
-    clickButtonArrangeBox(n) {
-        let b = document.getElementById(`b${n}`);
-        b.addEventListener('click', () => this.ButtonArrangeBox(n));
+    clickButtonArrangeBox() {
+        for(let i = 0; i < this.numButton.length; i++){
+            let b = document.getElementById(`b${this.numButton[i]}`);
+            b.addEventListener('click', () => this.ButtonArrangeBox(this.numButton[i]));
+        }
+
     }
 
 
@@ -78,10 +82,7 @@ class ArrangeBox {
 document.addEventListener('DOMContentLoaded', function(){
     let arrange = new ArrangeBox('.list-elem');
     arrange.eventElementList();
-    arrange.clickButtonArrangeBox(1);
-    arrange.clickButtonArrangeBox(2);
-    arrange.clickButtonArrangeBox(3);
-    arrange.clickButtonArrangeBox(4);
+    arrange.clickButtonArrangeBox();
 })
 
 
