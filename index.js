@@ -1,10 +1,6 @@
 class ArrangeBox {
-    constructor() {
-        this.b1 = document.getElementById('b1');
-        this.b2 = document.getElementById('b2');
-        this.b3 = document.getElementById('b3');
-        this.b4 = document.getElementById('b4');
-        this.selector = '.list-elem';
+    constructor(selector) {
+        this.selector = selector;
     }
     searchElemList() {
         return document.querySelectorAll(this.selector);
@@ -31,6 +27,7 @@ class ArrangeBox {
                         if (item.closest('#left-list')) {
                             let parentElemList = document.querySelector('#right-list');
                             parentElemList.appendChild(item);
+                            item.classList.remove('active');
                         }
                     }
                 }
@@ -42,7 +39,7 @@ class ArrangeBox {
                         if (item.closest('#right-list')) {
                             let parentElemList = document.querySelector('#left-list');
                             parentElemList.appendChild(item);
-
+                            item.classList.remove('active');
 
                         }
                     }
@@ -54,6 +51,7 @@ class ArrangeBox {
                     if (item.closest('#left-list')) {
                         let parentElemList = document.querySelector('#right-list');
                         parentElemList.append(item);
+                        item.classList.remove('active');
                     }
                 }
                 break;
@@ -62,27 +60,16 @@ class ArrangeBox {
                     if (item.closest('#right-list')) {
                         let parentElemList = document.querySelector('#left-list');
                         parentElemList.append(item);
+                        item.classList.remove('active');
                     }
                 }
                 break;
             default:
         }
     }
-    clickButtonArrangeBox1(n) {
-        let b1 = this.b1;
-        b1.addEventListener('click', () => this.ButtonArrangeBox(n))
-    }
-    clickButtonArrangeBox2(n) {
-        let b2 = this.b2;
-        b2.addEventListener('click', () => this.ButtonArrangeBox(n))
-    }
-    clickButtonArrangeBox3(n) {
-        let b3 = this.b3;
-        b3.addEventListener('click', () => this.ButtonArrangeBox(n))
-    }
-    clickButtonArrangeBox4(n) {
-        let b4 = this.b4;
-        b4.addEventListener('click', () => this.ButtonArrangeBox(n))
+    clickButtonArrangeBox(n) {
+        let b = document.getElementById(`b${n}`);
+        b.addEventListener('click', () => this.ButtonArrangeBox(n));
     }
 
 
@@ -91,11 +78,11 @@ class ArrangeBox {
 }
 document.addEventListener('DOMContentLoaded', function(){
     let arrange = new ArrangeBox();
-    arrange.eventElementList();
-    arrange.clickButtonArrangeBox1(1);
-    arrange.clickButtonArrangeBox2(2);
-    arrange.clickButtonArrangeBox3(3);
-    arrange.clickButtonArrangeBox4(4);
+    arrange.eventElementList('.list-item');
+    arrange.clickButtonArrangeBox(1);
+    arrange.clickButtonArrangeBox(2);
+    arrange.clickButtonArrangeBox(3);
+    arrange.clickButtonArrangeBox(4);
 })
 
 
