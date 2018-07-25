@@ -19,13 +19,12 @@ class ArrangeBox {
         }
     }
     ButtonArrangeBox(n) {
-        let newElemList = this.searchElemList();
         switch(n){
             case 1:
-                for (ler item of newElemList) {
+                for (let item of this.searchElemList()) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#left-list')) {
-                            let parentElemList = document.querySelector('#right-list');
+                            let parentElemList = document.getElementById('right-list');
                             parentElemList.appendChild(item);
                             item.classList.remove('active');
                         }
@@ -34,10 +33,10 @@ class ArrangeBox {
                 break;
             case 3:
 
-                for (ler item of newElemList) {
+                for (let item of this.searchElemList()) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#right-list')) {
-                            let parentElemList = document.querySelector('#left-list');
+                            let parentElemList = document.getElementById('left-list');
                             parentElemList.appendChild(item);
                             item.classList.remove('active');
 
@@ -47,18 +46,18 @@ class ArrangeBox {
 
                 break;
             case 2:
-                for (ler item of newElemList) {
+                for (let item of this.searchElemList()) {
                     if (item.closest('#left-list')) {
-                        let parentElemList = document.querySelector('#right-list');
+                        let parentElemList = document.getElementById('right-list');
                         parentElemList.append(item);
                         item.classList.remove('active');
                     }
                 }
                 break;
             case 4:
-                for (ler item of newElemList) {
+                for (let item of this.searchElemList()) {
                     if (item.closest('#right-list')) {
-                        let parentElemList = document.querySelector('#left-list');
+                        let parentElemList = document.getElementById('left-list');
                         parentElemList.append(item);
                         item.classList.remove('active');
                     }
