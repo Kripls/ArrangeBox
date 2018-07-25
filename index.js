@@ -7,11 +7,11 @@ class ArrangeBox {
     }
     eventElementList() {
         let elemList = this.searchElemList();
-        for (let i = 0; i < elemList.length; i++) {
-            elemList[i].addEventListener('click', function () {
+        for (let elem of elemList) {
+            elem.addEventListener('click', function () {
                 if (this.classList.contains('active') == false) {
-                    for (let i = 0; i < elemList.length; i++) {
-                        elemList[i].classList.remove('active');
+                    for (let elem of elemList) {
+                        elem.classList.remove('active');
                     }
                     this.classList.add('active');
                 }
@@ -22,7 +22,7 @@ class ArrangeBox {
         let newElemList = this.searchElemList();
         switch(n){
             case 1:
-                for (var item of newElemList) {
+                for (ler item of newElemList) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#left-list')) {
                             let parentElemList = document.querySelector('#right-list');
@@ -34,7 +34,7 @@ class ArrangeBox {
                 break;
             case 3:
 
-                for (var item of newElemList) {
+                for (ler item of newElemList) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#right-list')) {
                             let parentElemList = document.querySelector('#left-list');
@@ -47,7 +47,7 @@ class ArrangeBox {
 
                 break;
             case 2:
-                for (var item of newElemList) {
+                for (ler item of newElemList) {
                     if (item.closest('#left-list')) {
                         let parentElemList = document.querySelector('#right-list');
                         parentElemList.append(item);
@@ -56,7 +56,7 @@ class ArrangeBox {
                 }
                 break;
             case 4:
-                for (var item of newElemList) {
+                for (ler item of newElemList) {
                     if (item.closest('#right-list')) {
                         let parentElemList = document.querySelector('#left-list');
                         parentElemList.append(item);
