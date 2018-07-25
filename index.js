@@ -1,7 +1,9 @@
 class ArrangeBox {
-    constructor(selector) {
-        this.selector = selector;
+    constructor() {
+        this.selector = '.list-elem';
         this.numButton  = [1,2,3,4];
+        this.parentElemListRight = document.getElementById('right-list');
+        this.parentElemListLeft = document.getElementById('left-list');
     }
     searchElemList() {
         return document.querySelectorAll(this.selector);
@@ -25,8 +27,7 @@ class ArrangeBox {
                 for (let item of this.searchElemList()) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#left-list')) {
-                            let parentElemList = document.getElementById('right-list');
-                            parentElemList.appendChild(item);
+                            this.parentElemListRight.appendChild(item);
                             item.classList.remove('active');
                         }
                     }
@@ -37,8 +38,7 @@ class ArrangeBox {
                 for (let item of this.searchElemList()) {
                     if (item.classList.contains('active')) {
                         if (item.closest('#right-list')) {
-                            let parentElemList = document.getElementById('left-list');
-                            parentElemList.appendChild(item);
+                            this.parentElemListLeft.appendChild(item);
                             item.classList.remove('active');
 
                         }
@@ -49,8 +49,7 @@ class ArrangeBox {
             case 2:
                 for (let item of this.searchElemList()) {
                     if (item.closest('#left-list')) {
-                        let parentElemList = document.getElementById('right-list');
-                        parentElemList.append(item);
+                        this.parentElemListRight.append(item);
                         item.classList.remove('active');
                     }
                 }
@@ -58,8 +57,7 @@ class ArrangeBox {
             case 4:
                 for (let item of this.searchElemList()) {
                     if (item.closest('#right-list')) {
-                        let parentElemList = document.getElementById('left-list');
-                        parentElemList.append(item);
+                        this.parentElemListLeft.append(item);
                         item.classList.remove('active');
                     }
                 }
@@ -80,7 +78,7 @@ class ArrangeBox {
 
 }
 document.addEventListener('DOMContentLoaded', function(){
-    let arrange = new ArrangeBox('.list-elem');
+    let arrange = new ArrangeBox();
     arrange.eventElementList();
     arrange.clickButtonArrangeBox();
 })
