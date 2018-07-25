@@ -1,12 +1,11 @@
 class ArrangeBox {
     constructor() {
-        this.selector = '.list-elem';
         this.numButton  = [1,2,3,4];
         this.parentElemListRight = document.getElementById('right-list');
         this.parentElemListLeft = document.getElementById('left-list');
     }
     searchElemList() {
-        return document.querySelectorAll(this.selector);
+        return document.querySelectorAll('.list-elem');
     }
     eventElementList() {
         let elemList = this.searchElemList();
