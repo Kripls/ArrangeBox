@@ -77,8 +77,8 @@ class ArrangeBox {
 
 }
 document.addEventListener('DOMContentLoaded', function(){
-    let arrange = new ArrangeBox();
-    arrange.eventElementList('.list-item');
+    let arrange = new ArrangeBox('.list-elem');
+    arrange.eventElementList();
     arrange.clickButtonArrangeBox(1);
     arrange.clickButtonArrangeBox(2);
     arrange.clickButtonArrangeBox(3);
