@@ -3,22 +3,25 @@ class ArrangeBox {
         this.numButton  = [1,2,3,4];
         this.parentElemListRight = document.getElementById('right-list');
         this.parentElemListLeft = document.getElementById('left-list');
+        this.parentList = document.querySelectorAll('.parent-list');
     }
     searchElemList() {
         return document.querySelectorAll('.list-elem');
     }
     eventElementList() {
-        let elemList = this.searchElemList();
-        for (let elem of elemList) {
-            elem.addEventListener('click', function () {
-                if (this.classList.contains('active') == false) {
-                    for (let elem of elemList) {
-                        elem.classList.remove('active');
+        let parentList = this.parentList;
+        let childList = this.searchElemList();
+        for(let parent of parentList){
+            parent.addEventListener('click', function (e) {
+                if(e.target!=parent && e.target.hasAttribute('data-elem') && e.target.classList.contains('active') == false) {
+                    for(let child of childList){
+                        child.classList.remove('active');
                     }
-                    this.classList.add('active');
+                    e.target.classList.add('active');
                 }
             })
         }
+
     }
     ButtonArrangeBox(n) {
         switch(n){
