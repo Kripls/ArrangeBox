@@ -69,8 +69,7 @@ class ArrangeBox {
     }
     clickButtonArrangeBox() {
         for(let i = 0; i < this.numButton.length; i++){
-            let b = document.getElementById(`b${this.numButton[i]}`);
-            b.addEventListener('click', () => this.ButtonArrangeBox(this.numButton[i]));
+            document.getElementById(`b${this.numButton[i]}`).addEventListener('click', () => this.ButtonArrangeBox(this.numButton[i]));
         }
 
     }
